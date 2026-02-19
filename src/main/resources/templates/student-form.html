@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Registration</title>
+</head>
+<body>
+
+<h2>Student + Education Form</h2>
+
+<form th:action="@{/student/save}" th:object="${student}" method="post">
+
+<h3>Student Details</h3>
+
+First Name: <input type="text" th:field="*{firstName}" /><br/><br/>
+Last Name: <input type="text" th:field="*{lastName}" /><br/><br/>
+Father Name: <input type="text" th:field="*{fatherName}" /><br/><br/>
+Mother Name: <input type="text" th:field="*{motherName}" /><br/><br/>
+
+Gender:
+<select th:field="*{gender}">
+<option value="male">Male</option>
+<option value="female">Female</option>
+<option value="other">Other</option>
+</select><br/><br/>
+
+DOB: <input type="date" th:field="*{dob}" /><br/><br/>
+Mobile: <input type="text" th:field="*{mobileNumber}" /><br/><br/>
+
+<h3>Education Details</h3>
+
+10th School: <input type="text" th:field="*{education.tenthSchoolName}" /><br/><br/>
+10th Board: <input type="text" th:field="*{education.tenthBoardName}" /><br/><br/>
+10th Percentage: <input type="number" step="0.01" th:field="*{education.tenthPercentage}" /><br/><br/>
+
+12th School: <input type="text" th:field="*{education.twelfthSchoolName}" /><br/><br/>
+12th Board: <input type="text" th:field="*{education.twelfthBoardName}" /><br/><br/>
+12th Percentage: <input type="number" step="0.01" th:field="*{education.twelfthPercentage}" /><br/><br/>
+
+Higher Qualification: <input type="text" th:field="*{education.higherQualificationName}" /><br/><br/>
+College Name: <input type="text" th:field="*{education.collegeName}" /><br/><br/>
+University Name: <input type="text" th:field="*{education.universityName}" /><br/><br/>
+Graduation Percentage: <input type="number" step="0.01" th:field="*{education.graduationPercentage}" /><br/><br/>
+
+<button type="submit">Save</button>
+
+</form>
+
+</body>
+</html>
+
