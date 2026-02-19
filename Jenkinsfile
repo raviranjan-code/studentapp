@@ -1,17 +1,15 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven'
+    }
+
     stages {
-
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/raviranjan-code/studentapp.git'
-
-            }
-        }
 
         stage('Build') {
             steps {
+                sh 'chmod +x mvnw'
                 sh './mvnw clean package'
             }
         }
@@ -23,4 +21,14 @@ pipeline {
         }
 
     }
+
+    post {
+        success {
+            echo 'Build Successful ✅'
+        }
+        failure {
+            echo 'Build Failed ❌'
+        }
+    }
 }
+
