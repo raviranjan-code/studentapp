@@ -5,7 +5,8 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git 'git@github.com:raviranjan-code/studentapp.git'
+                git 'https://github.com/raviranjan-code/studentapp.git'
+
             }
         }
 
